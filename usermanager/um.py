@@ -6,15 +6,29 @@ from pprint import pprint
 from user import User
 
 
-def list_users(verbose):
+def list_users(verbose, sid=500):
     users = pwd.getpwall()
     users.sort(key=lambda user: user[2])
-    users = [User(*user) for user in users]
+    sys_users = []
+    gen_users = []
+    for user in users:
+        if user[2] <= sid:
+            sys_users.append(User(*user))
+        else:
+            gen_users.append(User(*user))
     if verbose:
-        print('You have following users on your system:')
+        print('You have following System Users on your system:')
         print('name, uid, gid, fullname, home, shell')
         print('======================================')
-    pprint(users)
+    for user in sys_users:
+        print(user)
+
+    if verbose:
+        print('\nYou have following General Users on your system:')
+        print('name, uid, gid, fullname, home, shell')
+        print('======================================')
+    for user in gen_users:
+        print(user)
 
 
 parser = argparse.ArgumentParser(prog='um',
