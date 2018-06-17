@@ -3,13 +3,17 @@
 import pwd
 import argparse
 from pprint import pprint
+from user import User
 
 
 def list_users(verbose):
     users = pwd.getpwall()
     users.sort(key=lambda user: user[2])
+    users = [User(*user) for user in users]
     if verbose:
         print('You have following users on your system:')
+        print('name, uid, gid, fullname, home, shell')
+        print('======================================')
     pprint(users)
 
 
