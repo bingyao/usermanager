@@ -25,6 +25,18 @@ interactively. The advantages are:
 * And for those SysAdmin guru, they can always switch to ``--quite`` mode and
   enjoy an unified command line interface.
 
+Roadmap of the project
+======================
+The hope and destination of this project is to make this tool as default user 
+management tool in Linux/Unix system. Thus a drop-in replacement for the
+following tool sets: ``useradd``, ``adduser``, ``groupadd``, ``addgroup``, 
+and etc.
+
+However, at this time it's just a newborn project, any help are welcome.
+You can check the stage planning and roadmap at `ROADMAP.rst`_ file.
+
+.. _`ROADMAP.rst`: https://github.com/bingyao/usermanager/blob/master/ROADMAP.rst
+
 License
 =======
 This project is released under the `MIT License`_.
